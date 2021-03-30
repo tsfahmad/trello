@@ -1,0 +1,23 @@
+.cardContainer {
+  position: relative;
+  height: 120px;
+  padding: 10px;
+  border: 1px solid #eee;
+
+  .cardTitle {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .cardDescription {
+    height: calc(100% - 20px);
+  }
+
+  .removeCard {
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    cursor: pointer;
+    font-size: smaller;
+  }
+}
