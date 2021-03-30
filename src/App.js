@@ -1,12 +1,12 @@
 import TrelloList from './components/trello-list';
 import './App.css';
 import useLocalStorage from "./hooks/useLocalstorage";
+import { MOCK_LIST, MOCK_LIST_CARD_MAP, MOCK_CARD_DETAILS } from "./mock/inital-data";
 
 function App() {
-  const [list, setList] = useLocalStorage('list', ['Teams', 'Products']);
-  const [listCardInfo, setListCardInfo] = useLocalStorage('listCardInfo', {'Teams': [], 'Products': []});
-  const [cardDetails, setCardDetails] = useLocalStorage('cardDetails', {});
-
+  const [list, setList] = useLocalStorage('list', MOCK_LIST);
+  const [listCardInfo, setListCardInfo] = useLocalStorage('listCardInfo', MOCK_LIST_CARD_MAP);
+  const [cardDetails, setCardDetails] = useLocalStorage('cardDetails', MOCK_CARD_DETAILS);
 
 
   const addNewList = () => {
@@ -80,7 +80,7 @@ function App() {
     const newListInfo = {...listCardInfo, [listId]: newCardList};
     setListCardInfo(newListInfo);
 
-    const {[cardId]: undefined, ...newCardDetails} = cardDetails;
+    const {[cardId]: deletedCardInfo, ...newCardDetails} = cardDetails;
     setCardDetails(newCardDetails);
   }
 

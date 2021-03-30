@@ -11,7 +11,7 @@ const useLocalStorage = (key, initialData) => {
     catch(err) {
       console.log(err);
     }
-  }, []);
+  }, [initialData, key]);
 
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(data));
